@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190813065802) do
+ActiveRecord::Schema.define(version: 20190814062140) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20190813065802) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
-    t.string   "password_confirm"
+    t.string   "crypted_password"
+    t.string   "password_salt"
     t.string   "persistence_token"
     t.boolean  "admin"
     t.datetime "created_at"

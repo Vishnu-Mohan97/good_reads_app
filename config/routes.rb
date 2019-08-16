@@ -1,11 +1,20 @@
 TheGoodReads::Application.routes.draw do
   resources :books
   resources :users
-  get "users/new"
-  get "users/create"
+  resources :user_books
+  resources :user_sessions, only: [:create, :destroy]
+
+  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
+  get '/sign_in', to: 'user_sessions#new', as: :sign_in
   root "pages#home"
   match '/my_books',    to: 'pages#my_books',    via: 'get'
-  match '/admin',    to: 'pages#admin',    via: 'get'
+  match '/pages/users',    to: 'pages#users',    via: 'get'
+  match '/pages/books',    to: 'pages#books',    via: 'get'
+  match 'delete_user',to: 'users#destroy', via: 'delete'
+  match '/books/id' ,to: 'books#destroy', via: "delete"
+  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

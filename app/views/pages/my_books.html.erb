@@ -1,5 +1,8 @@
 <h1>My Books</h1>
-<% @books.each do |book| %>
+<%if current_user.books == [] %>
+<h3>Sorry You Dont Have Any Books In Your Shelf</h3>
+<%else%>
+<% current_user.books.each do |book| %>
     <li>
         <%= book.title %> <br>
         <%= book.author %> <br>
@@ -7,3 +10,4 @@
         
     </li>
    <% end %>
+  <%end%>

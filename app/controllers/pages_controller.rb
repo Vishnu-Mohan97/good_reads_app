@@ -1,15 +1,21 @@
 class PagesController < ApplicationController
   def home
-  	byebug
+
   @books = Book.all 
   end
 
 
   def my_books
-  @books = current_user.books.all
+  end
+  def index
   end
 
-
-  def admin
+  def users
+    byebug
+    @users = User.all
   end
-end
+  def books
+    byebug
+    @books = Book.all
+  end
+end 

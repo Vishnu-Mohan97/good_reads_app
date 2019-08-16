@@ -1,10 +1,5 @@
-<h1>Home</h1>
-<% @books.each do |book| %>
-    <li>
-        <%= book.title %> <br>
-        <%= book.author %> <br>
-        <%= book.summary %> <br>
-        
-    </li>
-   <% end %>
+
+ <%= link_to "List Users", "pages/users", class: "btn btn-lg btn-primary" %>
+ <br>
+ <%= link_to "List Books", "pages/books", class: "btn btn-lg btn-primary" %>
 

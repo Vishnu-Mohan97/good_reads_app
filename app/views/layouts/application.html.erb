@@ -17,11 +17,16 @@
       <a class="btn btn-outline-success" href="/my_books" role="button">
       MY BOOKS
       </a>
-<!--       <% if current_user.admin?%>
-      <a class="btn btn-outline-success" href="/admin" role="button">
-      ADMIN
-      <%end%>
- -->    </div>
+       
+     <ul class="nav navbar-nav pull-right">
+        <% if current_user %>
+          <li><span><%= current_user.email %></span></li>
+          <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', sign_in_path %></li>
+        <% end %>
+      </ul>
+     </div>
   </form>
 </nav>
 
